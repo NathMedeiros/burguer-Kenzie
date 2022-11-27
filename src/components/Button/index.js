@@ -20,6 +20,7 @@ export const ButtonAdd = styled.button`
   height: 40px;
   color: #ffff;
   cursor: pointer;
+  margin-bottom: 20px;
 `;
 
 export const BtRemoveAll = styled.button`
@@ -28,6 +29,7 @@ export const BtRemoveAll = styled.button`
   background: #e0e0e0;
   border: 2px solid #e0e0e0;
   border-radius: 8px;
+  cursor: pointer;
 `;
 
 export const BtRemove = styled.button`
@@ -38,4 +40,13 @@ export const BtRemove = styled.button`
   border: none;
   background-color: transparent;
   margin-left: 60px;
+
+  @media (min-width: 1053px) {
+    width: 350px;
+    margin-left: 60px;
+  }
+  @media (max-width: 528px) {
+    width: 540px;
+    margin-left: 30px;
+  }
 `;

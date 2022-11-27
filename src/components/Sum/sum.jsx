@@ -2,14 +2,15 @@ import React from "react";
 import { DivBox, DivSum } from "./sum";
 import { BtRemoveAll } from "../Button";
 
-const Sum = () => {
+const Sum = ({ itensCart, clearCart }) => {
+  const totalPrice = itensCart.reduce((acc, current) => acc + current.price, 0);
   return (
     <DivBox>
       <DivSum>
         <h3>Total</h3>
-        <span>R$</span>
+        <span>R${totalPrice.toFixed(2)}</span>
       </DivSum>
-      <BtRemoveAll>Remover Todos</BtRemoveAll>
+      <BtRemoveAll onClick={() => clearCart()}>Remover Todos</BtRemoveAll>
     </DivBox>
   );
 };

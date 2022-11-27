@@ -18,7 +18,9 @@ const ProductCard = ({ name, category, price, img, handleAddItemToCard }) => {
             currency: "BRL",
           })}
         </p>
-        <ButtonAdd onClick={() => handleAddItemToCard(name, category, img)}>
+        <ButtonAdd
+          onClick={() => handleAddItemToCard(name, category, img, price)}
+        >
           Adicionar
         </ButtonAdd>
       </DivDescription>

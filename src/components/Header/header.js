@@ -28,7 +28,8 @@ export const FormSearch = styled.form`
   }
 
   input {
-    width: 90%;
+    width: 80%;
+
     padding-left: 20px;
     height: 45px;
     border: 2px solid #e0e0e0;

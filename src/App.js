@@ -4,25 +4,41 @@ import ProductCard from "../src/components/ProductCard/productCard.jsx";
 import { Container, UlList } from "../src/components/ProductCard/productCard";
 import { api } from "./lib/axios.js";
 import Cart from "./components/Cart/cart.jsx";
-import IndexUlCart from "./components/UlCart/index.jsx";
-import { UlCart } from "./components/UlCart/index";
+import { UlCart } from "./components/Cart/cart";
 import { ContainerCart } from "./components/CartEmpty/cartEmpty.js";
 import { CartEmpty } from "./components/CartEmpty/cartEmpty.jsx";
 import Sum from "./components/Sum/sum.jsx";
+import { HeaderCart } from "./components/Cart/cart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [itensCart, setItenscart] = useState([]);
 
-  console.log(itensCart);
+  function handleAddItemToCard(name, category, img, price) {
+    const prodObject = { name, category, img, price };
 
-  function handleAddItemToCard(name, category, img) {
-    const prodObject = { name, category, img };
-    setItenscart([...itensCart, prodObject]);
+    if (!itensCart.some((elt) => elt.name === prodObject.name)) {
+      setItenscart([...itensCart, prodObject]);
+      toast.success("Produto adicionado com sucesso");
+    } else {
+      toast.error("Produto já disponivel no carrinho");
+    }
   }
 
-  console.log(search);
+  function removeProd(prodId) {
+    const filteredCart = itensCart.filter(
+      (prodCart) => itensCart.indexOf(prodCart) !== prodId
+    );
+    setItenscart(filteredCart);
+  }
+
+  function clearCart() {
+    setItenscart([]);
+  }
+
   const filteredProducts = !search
     ? products
     : products.filter((prod) =>
@@ -58,21 +74,39 @@ function App() {
           ))}
         </UlList>
         <ContainerCart>
-          <IndexUlCart />
+          <HeaderCart>
+            <h3>Carrinho de Compras</h3>
+          </HeaderCart>
           {itensCart.length === 0 && <CartEmpty />}
           <UlCart>
-            {itensCart.map((cartProd) => (
+            {itensCart.map((cartProd, index) => (
               <Cart
-                key={cartProd.id}
+                key={index}
+                prodIndex={index}
                 name={cartProd.name}
                 category={cartProd.category}
                 price={cartProd.price}
                 img={cartProd.img}
+                removeProd={removeProd}
               />
             ))}
           </UlCart>
-          {itensCart.length !== 0 && <Sum />}
+          {itensCart.length !== 0 && (
+            <Sum itensCart={itensCart} clearCart={clearCart} />
+          )}
         </ContainerCart>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
       </Container>
     </div>
   );

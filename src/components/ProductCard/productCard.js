@@ -2,19 +2,19 @@ import styled from "styled-components";
 
 export const UlList = styled.ul`
   margin-left: 10px;
-  width: 95%;
+  width: 90%;
   display: flex;
   gap: 20px;
   overflow-x: auto;
   @media (min-width: 1053px) {
     flex-wrap: wrap;
-    margin-left: 20px;
+    width: 67%;
   }
 `;
 
 export const List = styled.li`
   min-width: 275px;
-  height: 335px;
+
   list-style: none;
   border: 2px solid #e0e0e0;
   border-radius: 5px;
@@ -23,7 +23,7 @@ export const List = styled.li`
 `;
 
 export const Container = styled.div`
-  width: 105%;
+  padding-bottom: 50px;
   @media (min-width: 1053px) {
     display: flex;
   }

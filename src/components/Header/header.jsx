@@ -6,18 +6,27 @@ import { FormSearch } from "./header.js";
 
 import "./header.js";
 
-const Header = ({ search, setSearch }) => {
+const Header = ({ search, setSearch, filterSearch }) => {
+  function handleSubmit(e) {
+    console.log(e);
+
+    e.preventDefault();
+    if (search.length) {
+      filterSearch(search);
+    }
+  }
+
   return (
     <HeaderStyle>
       <img src={logo} alt="" />
-      <FormSearch>
+      <FormSearch onSubmit={handleSubmit}>
         <input
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
           placeholder="Digitar Pesquisa"
+          onChange={(e) => setSearch(e.target.value)}
         />
-        <Button>Pesquisar</Button>
+        <Button type="submit">Pesquisar</Button>
       </FormSearch>
     </HeaderStyle>
   );

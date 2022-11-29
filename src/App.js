@@ -16,6 +16,7 @@ function App() {
   const [products, setProducts] = useState([]);
   const [search, setSearch] = useState("");
   const [itensCart, setItenscart] = useState([]);
+  const [abobrinha, setAbobrinha] = useState([]);
 
   function handleAddItemToCard(name, category, img, price) {
     const prodObject = { name, category, img, price };
@@ -39,11 +40,16 @@ function App() {
     setItenscart([]);
   }
 
-  const filteredProducts = !search
-    ? products
-    : products.filter((prod) =>
-        prod.name.toLowerCase().includes(search.toLowerCase())
-      );
+  function filterSearch(search) {
+    console.log(search);
+    setAbobrinha(
+      products.filter(
+        (elt) =>
+          elt.name.toLowerCase().includes(search.toLowerCase()) ||
+          elt.category.toLowerCase().includes(search.toLowerCase())
+      )
+    );
+  }
 
   useEffect(() => {
     async function getProduct() {
@@ -59,19 +65,34 @@ function App() {
 
   return (
     <div className="App">
-      <Header setSearch={setSearch} />
+      <Header
+        filterSearch={filterSearch}
+        setSearch={setSearch}
+        search={search}
+      />
       <Container>
         <UlList>
-          {filteredProducts.map((product) => (
-            <ProductCard
-              key={product.id}
-              name={product.name}
-              category={product.category}
-              price={product.price}
-              img={product.img}
-              handleAddItemToCard={handleAddItemToCard}
-            />
-          ))}
+          {abobrinha.length === 0
+            ? products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  name={product.name}
+                  category={product.category}
+                  price={product.price}
+                  img={product.img}
+                  handleAddItemToCard={handleAddItemToCard}
+                />
+              ))
+            : abobrinha.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  name={product.name}
+                  category={product.category}
+                  price={product.price}
+                  img={product.img}
+                  handleAddItemToCard={handleAddItemToCard}
+                />
+              ))}
         </UlList>
         <ContainerCart>
           <HeaderCart>

@@ -19,12 +19,8 @@ export const HeaderCart = styled.div`
   border-radius: 5px 5px 0px 0px;
   color: #ffff;
 
-  h3 {
-    padding-left: 38%;
-    @media (min-width: 1053px) {
-      padding-left: 27%;
-    }
-  }
+  text-align: center;
+  justify-content: center;
 `;
 
 export const UlCart = styled.ul`

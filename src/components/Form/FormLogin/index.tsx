@@ -44,7 +44,6 @@ const FormLogin = () => {
     formState: { errors },
   } = useForm<iDataLogin>({
     mode: "onBlur",
-
     resolver: yupResolver(loginSchema),
   });
 
@@ -77,7 +76,7 @@ const FormLogin = () => {
         placeholder="Digite aqui seu nome"
         register={register("email")}
       />
-      {errors.email?.message && <small>{errors.email.message}</small>}
+      {errors.email?.message && <small>{errors.email.message} </small>}
       <Input
         id="password"
         label="Senha"

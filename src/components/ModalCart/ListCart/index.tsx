@@ -34,7 +34,7 @@ const ListCart = ({ elt }: iElementCartProps) => {
             <img
               onClick={() => {
                 DeleteProduct(elt);
-                decrease();
+                // decrease();
                 setCounter(0);
               }}
               src={imgTrash}

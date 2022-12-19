@@ -12,26 +12,12 @@ interface iIputProps {
   //   disabled: boolean;
 }
 
-const Input = ({
-  id,
-  label,
-  type,
-  placeholder,
-  register,
-}: // ,
-//   disabled,
-iIputProps) => {
+const Input = ({ id, label, type, placeholder, register }: iIputProps) => {
   return (
     <Fieldset>
       <label htmlFor={id}>{label}</label>
 
-      <input
-        type={type}
-        // disabled={disabled}
-        placeholder={placeholder}
-        id={id}
-        {...register}
-      />
+      <input type={type} placeholder={placeholder} id={id} {...register} />
     </Fieldset>
   );
 };

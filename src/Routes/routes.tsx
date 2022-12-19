@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import AuthRoutes from ".";
+import NotFound from "../components/PageNotFound";
 import { ProdProvider } from "../Contexts/ProdContext";
 
 import Home from "../Pages/Home";
@@ -11,7 +12,7 @@ const RoutesPage = () => {
   return (
     <div>
       <Routes>
-        {/* <Route path="*" element={<PageNotFound />} /> */}
+        <Route path="*" element={<NotFound />} />
         <Route path="/" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route element={<AuthRoutes />}>

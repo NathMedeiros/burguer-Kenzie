@@ -42,7 +42,9 @@ interface iProducts {
   price: number;
   img: string;
 }
-
+interface iProdId {
+  id: iProducts;
+}
 export const ProdProvider = ({ children }: iChildrenProps) => {
   const [modalIsOpen, setIsOpen] = useState(false);
   const [cart, setCart] = useState([] as iCart[]);
@@ -89,6 +91,7 @@ export const ProdProvider = ({ children }: iChildrenProps) => {
   function addCart(element: iCart) {
     const getProducts = products.find((elem) => elem.id === element.id);
     const noRepeat = cart.some((elem) => elem.id === getProducts?.id);
+    setCounter(counter + 1);
     if (!noRepeat) {
       setCart((previuosCart: iProducts[] | any) => {
         return [...previuosCart, getProducts];

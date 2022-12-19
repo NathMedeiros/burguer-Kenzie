@@ -16,10 +16,6 @@ interface iDataLogin {
   password: string;
 }
 
-// interface iautologin {
-//   user: iUser;
-// }
-
 interface iChildren {
   children: React.ReactNode;
 }
@@ -52,7 +48,6 @@ export const AuthProvider = ({ children }: iChildren) => {
   const [user, setUser] = useState<iUser | null>(null);
 
   const navigate = useNavigate();
-
 
   const userLogin = async (data: iDataLogin) => {
     try {

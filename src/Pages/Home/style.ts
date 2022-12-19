@@ -15,8 +15,6 @@ export const UlList = styled.ul`
 `;
 
 export const Container = styled.div`
-  /* padding-bottom: 50px; */
-
   @media (min-width: 1053px) {
     display: flex;
     padding-left: 50px;

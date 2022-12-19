@@ -46,7 +46,7 @@ export const DivBoxCount = styled.div`
   height: 30px;
   align-items: center;
   justify-content: center;
-  margin-top: 44px;
+  margin-top: 30px;
   margin-right: auto;
 
   p {

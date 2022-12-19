@@ -1,14 +1,11 @@
 import React from "react";
-
 import { BtEntry, BtGoToRegister } from "../../Button/style";
 import Input from "../../Input";
 import { LoginForm } from "./style";
-
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-
 import { useContext } from "react";
 import { AuthContext } from "../../../Contexts/AuthContext";
 import { SubmitHandler } from "react-hook-form/dist/types";

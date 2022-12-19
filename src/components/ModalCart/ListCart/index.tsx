@@ -19,7 +19,7 @@ interface iElementCartProps {
   };
 }
 const ListCart = ({ elt }: iElementCartProps) => {
-  const { DeleteProduct, counter, increase, decrease, setCounter } =
+  const { DeleteProduct, increase, decrease, setCounter } =
     useContext(ProdContext);
   return (
     <>
@@ -34,7 +34,7 @@ const ListCart = ({ elt }: iElementCartProps) => {
             <img
               onClick={() => {
                 DeleteProduct(elt);
-                // decrease();
+
                 setCounter(0);
               }}
               src={imgTrash}
@@ -43,7 +43,7 @@ const ListCart = ({ elt }: iElementCartProps) => {
           </DivNameProd>
           <DivBoxCount>
             <button onClick={() => increase()}>+</button>
-            <p>{counter}</p>
+            <p>{1}</p>
             <button onClick={() => decrease()}>-</button>
           </DivBoxCount>
         </DivBoxImg>

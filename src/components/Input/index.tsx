@@ -9,7 +9,6 @@ interface iIputProps {
   type: "text" | "name" | "email" | "password";
   placeholder: string;
   register: UseFormRegisterReturn;
-  //   disabled: boolean;
 }
 
 const Input = ({ id, label, type, placeholder, register }: iIputProps) => {

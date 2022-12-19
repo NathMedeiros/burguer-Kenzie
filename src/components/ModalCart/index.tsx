@@ -8,20 +8,7 @@ import ListCart from "./ListCart";
 import SumCart from "../SumCart";
 import { CartEmpty } from "./EmpyCart";
 
-// import imgCount from "../../img/Group 133.png";
-
-// Make sure to bind modal to your appElement (https://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement("#root");
-
-// interface iProducts {
-//   elt: {
-//   id: number;
-//   name: string;
-//   category: string;
-//   price: number;
-//   img: string;
-//   }
-// }
 
 function ModalCart() {
   const { modalIsOpen, closeModal, cart } = useContext(ProdContext);
